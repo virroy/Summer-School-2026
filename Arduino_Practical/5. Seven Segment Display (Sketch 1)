@@ -1,0 +1,40 @@
+// To blink the LEDs on SSD
+	
+#define  a 2// a to PIN2
+#define  b 3// b to PIN3
+#define  c 4// c to PIN4
+#define  d 5// d to PIN5
+#define  e 6// e to PIN6
+#define  f 8// f to PIN8
+#define  g 9// g to PIN9
+
+void setup(){
+  pinMode(a, OUTPUT); 
+  pinMode(b, OUTPUT); 
+  pinMode(c, OUTPUT); 
+  pinMode(d, OUTPUT); 
+  pinMode(e, OUTPUT); 
+  pinMode(f, OUTPUT);  
+  pinMode(g, OUTPUT);  
+}
+
+// Code to blink the seven segment display
+
+void loop(){
+  digitalWrite(a,LOW);
+  digitalWrite(b,LOW);
+  digitalWrite(c,LOW);
+  digitalWrite(d,LOW);
+  digitalWrite(e,LOW);
+  digitalWrite(f,LOW);
+  digitalWrite(g,LOW);
+  delay(1000);
+  digitalWrite(a,HIGH);
+  digitalWrite(b,HIGH);
+  digitalWrite(c,HIGH);
+  digitalWrite(d,HIGH);
+  digitalWrite(e,HIGH);
+  digitalWrite(f,HIGH);
+  digitalWrite(g,HIGH);
+  delay(1000);
+  }
