@@ -1,0 +1,31 @@
+#include <LiquidCrystal.h> //Load Liquid Crystal Library
+LiquidCrystal LCD(12,11,5,4,3,2); //Create Liquid Crystal Object called lcd
+
+#define trig 7 //Sensor Echo pin connected to Arduino pin 7
+#define echo 8 //Sensor Trip pin connected to Arduino pin 8
+
+void setup() 
+{  
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+  
+  LCD.begin(16,2); //Begin LCD
+  LCD.setCursor(0,0);  //Set LCD cursor to upper left corner, column 0, row 0
+  LCD.print("Object Distance:");  //Print Message on First Row
+}
+
+void loop() {
+  float duration, distance;  // Variables
+  digitalWrite(trig, LOW);  //digital pin connected to trig is OFF/LOW
+  delayMicroseconds(2);        //wait for 2 microseconds
+  digitalWrite(trig, HIGH); //digital pin connected to trig is ON/HIGH
+  delayMicroseconds(10);       //wait for 10 microseconds
+  digitalWrite(trig, LOW);  //digital pin connected to trig is OFF/LOW
+  duration = pulseIn(echo, HIGH);  //reads pulse of echo is ON/HIGH
+  distance = ((duration*0.0343)/2) ;  //formula
+
+  LCD.setCursor(0,1);   //Set Cursor to first column of second row
+  LCD.print(distance); //Print measured distance
+  LCD.print(" cm");  //Print units.
+  delay(250); 
+}
